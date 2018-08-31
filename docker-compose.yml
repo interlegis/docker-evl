@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  
+  evldb:
+    image: postgres:9.6.8-alpine
+    environment:
+      POSTGRES_PASSWORD: ${ADMINPW}
+      POSTGRES_USER: evl
+      POSTGRES_DB: evl
+      PGDATA : /var/lib/postgresql/data/
+    volumes:
+      - evldb_data:/var/lib/postgresql/data/
+  
+  evl:
+    build: .
+    environment:
+      DATABASE_URL: postgresql://evl:${ADMINPW}@evldb:5432/evl
+      ADMIN_PASSWORD: ${ADMINPW}
+      ADMIN_EMAIL: changeme
+      EMAIL_PORT: 25
+      EMAIL_HOST: smtp.interlegis.leg.br
+    volumes:
+      - evl_data:/var/interlegis/evl/data
+      - evl_media:/var/interlegis/evl/media
+    links:
+      - evldb
+
+volumes:
+  evldb_data:
+  evl_data:
+  evl_media:
