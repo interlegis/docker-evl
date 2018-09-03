@@ -12,7 +12,7 @@ def create_superuser():
 
     username = "admin"
     password = os.environ[
-        'ADMIN_PASSWORD'] if 'ADMIN_PASSWORD' in os.environ else None
+        'EVL_ADMIN_PASS'] if 'EVL_ADMIN_PASS' in os.environ else None
     email = os.environ['ADMIN_EMAIL'] if 'ADMIN_EMAIL' in os.environ else ''
 
     if User.objects.filter(username=username).exists():
@@ -22,9 +22,9 @@ def create_superuser():
     else:
         if not password:
             print(
-                "[SUPERUSER] Environment variable $ADMIN_PASSWORD"
+                "[SUPERUSER] Environment variable $EVL_ADMIN_PASS"
                 " for user %s was not set. Leaving..." % username)
-            sys.exit('MISSING_ADMIN_PASSWORD')
+            sys.exit('MISSING_EVL_ADMIN_PASS')
 
         print("[SUPERUSER] Creating superuser...")
 

@@ -13,7 +13,7 @@ create_env() {
     FILENAME="/var/interlegis/evl/.env"
 
     if [ -z "${DATABASE_URL:-}" ]; then
-        DATABASE_URL="postgresql://evl:${ADMIN_PASSWORD}@evldb:5432/evl"
+        DATABASE_URL="postgresql://evl:${EVL_DB_PASS}@evldb:5432/evl"
     fi
 
     # ALWAYS replace the content of .env variable
