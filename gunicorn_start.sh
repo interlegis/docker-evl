@@ -20,8 +20,8 @@ NUM_WORKERS=3                                   # how many worker processes shou
                                                 # NUM_WORKERS = 2 * CPUS + 1
 TIMEOUT=60
 MAX_REQUESTS=100                                # number of requests before restarting worker
-DJANGO_SETTINGS_MODULE=evl.settings            # which settings file should Django use (*)
-DJANGO_WSGI_MODULE=evl.wsgi                    # WSGI module name (*)
+DJANGO_SETTINGS_MODULE=evl_admin.settings            # which settings file should Django use (*)
+DJANGO_WSGI_MODULE=evl_admin.wsgi                    # WSGI module name (*)
 
 echo "Starting $NAME as `whoami` on base dir $EVL_DIR"
 

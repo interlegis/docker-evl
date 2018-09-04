@@ -4,7 +4,7 @@ import sys
 
 import django
 
-os.environ.setdefault("DJANGO_SETTINGS_MODULE", "evl.settings")
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "evl_admin.settings")
 
 
 def create_superuser():
